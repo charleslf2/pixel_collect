@@ -2,7 +2,7 @@ import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
-from PIL import image
+import base64
 
 keyword="ai"
 
@@ -20,15 +20,21 @@ image_btn=driver.find_element(By.XPATH,"//*[contains(text(),'Images')]")
 
 image_btn.click()
 
+#d_img_btn=image_btn.find_element(By.TAG_NAME, value="div")
+
+#d_img_btn.click()
 
 r=requests.get(driver.current_url)
 
 soup=BeautifulSoup(r.text, 'html.parser')
 
 
-for imgs in soup.find_all("img"):
-    image_url=imgs.get("src")
-    data=request.get(image_url).content
+for img in soup.find_all("img"):
+    
+    image_url=img.get("src")
+
+    print(image_url)
+
 
 
 #print(soup.find_all('img'))
