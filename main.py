@@ -24,8 +24,6 @@ for link in links:
     link_list.append(link_href)
 
 
-
-
 def get_real_site_url(link_list):
     i_url_list=[]
     for i in range(len(link_list)):
@@ -94,11 +92,11 @@ download_image(request_url)
 #print(i_url_list)
 #print(soup.find_all('img'))
 
-fil=open("real_url.html","w",encoding="utf-8")
-fil.write(str(real_url))
-fil.close()
+#fil=open("real_url.html","w",encoding="utf-8")
+#fil.write(str(real_url))
+#fil.close()
 
-func=open("index.html","w",encoding="utf-8")
-func.write(str(link_list))
-func.close()
+#func=open("index.html","w",encoding="utf-8")
+#func.write(str(link_list))
+#func.close()
 
