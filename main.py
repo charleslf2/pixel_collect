@@ -3,9 +3,7 @@ from bs4 import BeautifulSoup
 import re
 import os
 
-keyword="small tits"
-
-#keyword="teen tits nakeed porn "
+keyword="ai"
 
 
 url="https://images.google.com/search?q="+keyword+"&tbm=isch&sxsrf"
@@ -78,7 +76,7 @@ def download_image(imglink_list):
                     nbr+=1
                     image_link_list.append(imglink_list[i])
                     print("Downloading... ", imglink_list[i])
-                    img_file=open("image_{:03d}{}".format(nbr,ext),"wb")
+                    img_file=open("ai/image_{:03d}{}".format(nbr,ext),"wb")
                     img_file.write(image_data)
                     img_file.close()
         except :
