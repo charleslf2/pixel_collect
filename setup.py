@@ -11,7 +11,7 @@ setup(
         url="https://github.com/charleslf2/pixel_collect",
         description=DESCRIPTION,
         long_description_content_type="text/markdown",
-        #long_description=open("README.md","r",encoding="utf-8").read(),
+        long_description=open("README.md","r",encoding="utf-8").read(),
         packages=find_packages(),
         install_requires=["requests","beautifulsoup4"],  
         keywords=["Computer-vision","Images","Dataset","scrapping"],

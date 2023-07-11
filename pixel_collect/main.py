@@ -49,6 +49,8 @@ def download_image(request_url_list,l,save):
             if begin =="https":
                 _,ext=os.path.splitext(request_url_list[i])
                 image_data=requests.get(request_url_list[i]).content
+                if len(ext) >4:
+                    ext=".jpg"
 
                 if request_url_list[i] in image_link_list:
                     print("Image already existed.... Skip")
@@ -76,10 +78,16 @@ def pixel_scrap(keyword:str,save_folder:str,limit=50,logs=False):
         os.mkdir(save_folder)
 
     save=os.path.basename(save_folder)
+
+    params={
+        'hl':'en',
+        'gl':'us',
+        'lr':'lang_en'
+    }
     
     url="https://images.google.com/search?q="+keyword+"&tbm=isch&sxsrf"
 
-    r=requests.get(url)
+    r=requests.get(url,params)
 
     soup=BeautifulSoup(r.content, 'html.parser')
 
