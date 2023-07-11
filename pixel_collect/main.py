@@ -66,7 +66,7 @@ def download_image(imglink_list,l,sf):
             pass
 
 
-def pixel_scrap(keyword:str;limit:50;logs:False;save_folder:dir):
+def pixel_scrap(keyword:str,save_folder:str,limit=50,logs=False):
 
     if isinstance(keyword,str) ==False:
         raise Exception("keyword must be string")
