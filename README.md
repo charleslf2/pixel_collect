@@ -4,6 +4,14 @@ Pixel collect is a simple google image scrapper for your computer vision tasks
 
 ### Installation
 
+#### Quick 
+
+```bash
+pip install pixel_collect
+```
+
+#### Long
+
 - Step 1
 
 ```bash
