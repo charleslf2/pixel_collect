@@ -37,10 +37,13 @@ def request_to_real_site_url(i_url_list):
             pass
     return imglink_list 
 
-def download_image(imglink_list,sf):
+def download_image(imglink_list,l,sf):
     image_link_list=[]
     nbr=0
     for i in range(len(imglink_list)):
+        if nbr>=l:
+            print("End of scrap ... exit")
+            break;
         try:
             begin=imglink_list[i][0:5]
             if begin =="https":
@@ -57,6 +60,7 @@ def download_image(imglink_list,sf):
                     img_file=open("{}/image_{:03d}{}".format(sf,ext),"wb")
                     img_file.write(image_data)
                     img_file.close()
+
         except :
             print("image number " ,nbr, "save error")
             pass
@@ -79,19 +83,17 @@ def pixel_scrap(keyword:str;limit:50;logs:False;save_folder:dir):
     links=soup.find_all('a')
 
     link_list=[]
-    run =True
 
     for link in links:
         link_href=link.get('href')
         link_list.append(link_href)
 
 
-
     real_url=get_real_site_url(link_list)
 
     request_url=request_to_real_site_url(real_url)
 
-    download_image(request_url,save_folder)
+    download_image(request_url,limit,save_folder)
 
     if logs==True:
         func=open("{}/{}_scraplog.html".format(save_folder,keyword),"w",encoding="utf-8")

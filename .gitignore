@@ -1,3 +1,7 @@
 pixie_env/
 index.html
 real_url.html
+build/
+dist/
+pixel_collect.egg-info/
+
